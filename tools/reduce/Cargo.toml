@@ -15,8 +15,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-autocxx-engine = { version = "=0.30.0", path = "../../engine" }
-autocxx-parser = { version = "=0.30.0", path = "../../parser", features = [
+autocxx-engine = { version = "=0.30.0", path = "../../engine", package = "autocxx-engine-idalib" }
+autocxx-parser = { version = "=0.30.0", path = "../../parser", package = "autocxx-parser-idalib", features = [
     "reproduction_case",
 ] }
 clap = { version = "3.1.2", features = ["cargo"] }
