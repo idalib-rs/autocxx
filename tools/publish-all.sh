@@ -1,14 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-DIRS="$DIR/parser $DIR/engine $DIR/macro $DIR $DIR/gen/build $DIR/integration-tests $DIR/gen/cmd"
+MANIFESTS=(
+  parser/Cargo.toml
+  engine/Cargo.toml
+  macro/Cargo.toml
+  Cargo.toml
+  gen/build/Cargo.toml
+)
 
-for CRATE in $DIRS; do
-  pushd $CRATE
-  echo "Publish: $CRATE"
-  cargo publish
-  popd
+for manifest in "${MANIFESTS[@]}"; do
+  echo "Publishing $manifest"
+  cargo publish --manifest-path "$ROOT/$manifest" "$@"
 done
