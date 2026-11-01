@@ -22,7 +22,7 @@ runtime = ["autocxx-engine/runtime"]
 static = ["autocxx-engine/static"]
 
 [dependencies]
-autocxx-engine = { version = "=0.30.0", path = "../../engine", package = "autocxx-engine-idalib" }
+autocxx-engine = { version = "=0.30.1", path = "../../engine", package = "autocxx-engine-idalib" }
 clap = { version = "3.1.2", features = ["cargo"] }
 proc-macro2 = "1.0"
 env_logger = "0.9.0"
